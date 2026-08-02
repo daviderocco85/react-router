@@ -8,7 +8,9 @@ export const ShellLayout = () => {
     return (
         <div className="shell-layout">
             <Header />
-            <Outlet />
+            <main>
+                <Outlet />
+            </main>
             <Footer />
         </div>
     );
