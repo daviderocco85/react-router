@@ -11,7 +11,7 @@ Usare Fake Store API come back-end fittizio per simulare i dati dei prodotti.
   - Homepage 
   - Chi siamo
   - Prodotti
-3. Implementiamo una Navbar visibile in tutte le pagine per navigare tra di esse.
+3. Implementare una Navbar visibile in tutte le pagine per navigare tra di esse.
 
 # Bonus Parte 1
 
