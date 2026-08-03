@@ -25,17 +25,43 @@ export const ProductDetail = () => {
         return <div className="page">Caricamento...</div>;
     }
 
+    const currentId = Number(id);
+
+    const goPrev = () => {
+        if (currentId > 1) {
+            navigate(`/products/${currentId - 1}`);
+        }
+    };
+
+    const goNext = () => {
+        if (currentId < 20) {
+            navigate(`/products/${currentId + 1}`);
+        }
+    };
+
     return (
         <div className="product-detail page">
             <h1>{product.title}</h1>
+
             <img
                 src={product.image}
                 alt={product.title}
                 style={{ width: "200px", marginBottom: "1rem" }}
             />
+
             <p>{product.description}</p>
             <p><strong>Categoria:</strong> {product.category}</p>
             <p><strong>Prezzo:</strong> ${product.price}</p>
+
+            <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
+                <button onClick={goPrev} disabled={currentId === 1}>
+                    Prodotto precedente
+                </button>
+
+                <button onClick={goNext} disabled={currentId === 20}>
+                    Prodotto successivo
+                </button>
+            </div>
         </div>
     );
 };
