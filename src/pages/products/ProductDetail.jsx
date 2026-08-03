@@ -1,15 +1,25 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export const ProductDetail = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
         axios.get(`https://fakestoreapi.com/products/${id}`)
-            .then(res => setProduct(res.data));
-    }, [id]);
+            .then(res => {
+                if (!res.data || !res.data.id) {
+                    navigate("/products");
+                } else {
+                    setProduct(res.data);
+                }
+            })
+            .catch(() => {
+                navigate("/products");
+            });
+    }, [id, navigate]);
 
     if (!product) {
         return <div className="page">Caricamento...</div>;
