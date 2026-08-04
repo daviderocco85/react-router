@@ -1,3 +1,4 @@
+import './ProductDetail.css'
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -53,7 +54,7 @@ export const ProductDetail = () => {
             <p><strong>Categoria:</strong> {product.category}</p>
             <p><strong>Prezzo:</strong> ${product.price}</p>
 
-            <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
+            <div className="nav-buttons">
                 <button onClick={goPrev} disabled={currentId === 1}>
                     Prodotto precedente
                 </button>
