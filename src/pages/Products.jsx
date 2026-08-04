@@ -1,3 +1,4 @@
+import './Products.css'
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -13,10 +14,11 @@ export const Products = () => {
     return (
         <div className="products page">
             <h1>Prodotti</h1>
-            <ul>
+            <ul className="products-list">
                 {products.map(p => (
-                    <li key={p.id}>
+                    <li key={p.id} className="product-card">
                         <Link to={`/products/${p.id}`}>
+                            <img src={p.image} alt={p.title} />
                             {p.title}
                         </Link>
                     </li>
@@ -25,4 +27,5 @@ export const Products = () => {
         </div>
     );
 };
+
 
